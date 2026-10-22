@@ -32,5 +32,18 @@ module mux_4_1
   // Using code for mux_2_1 as an example,
   // write code for 4:1 mux using the "if" statement
 
+  always_comb // процедурный блок, предназначенный исключительно для описания комбинационной логики
+    if (sel[0]) begin // begin и end — это просто операторные скобки {}, которые объединяют несколько строк кода внутри этого блока
+        if (sel[1])
+          y = d3;
+        else
+          y = d1;
+    end
+    else begin
+        if (sel[1])
+          y = d2;
+        else
+          y = d0;
+    end
 
 endmodule

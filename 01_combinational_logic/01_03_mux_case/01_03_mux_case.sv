@@ -32,5 +32,14 @@ module mux_4_1
   // Using code for mux_2_1 as an example,
   // write code for 4:1 mux using the "case" statement
 
+  always_comb begin
+    case (sel) // перебираем значения управляющего сигнала sel, и в зависимости от значения делаем присваивание
+        2'd00: y = d0;
+        2'd01: y = d1;
+        2'd10: y = d2;
+        2'd11: y = d3;
+        // default: y = d0; // можно присваивать значения по умолчанию
+    endcase
+  end
 
 endmodule

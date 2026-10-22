@@ -28,5 +28,20 @@ module xor_gate_using_mux
   // Implement xor gate using instance(s) of mux,
   // constants 0 and 1, and wire connections
 
+  logic c;
+  mux mux0( // если b=0 - выводим в С=а => если b=0 на выходе xOr всегда будет А
+    .d0(a), // если b=1 - выводим в С=0 => если b=1 на выходе xOr не будет А
+    .d1('b0),
+    .sel(b),
+    .y(c)
+  );
+
+  mux mux1( // если a=0 - выводим b => если a=0 на выходе xOr всегда будет B
+    .d0(b), // если а=1 - выводим с => если a=1 на выходе будет 1 (то есть а) только когда b=0, иначе 0
+    .d1(c),
+    .sel(a),
+    .y(o)
+  );
+
 
 endmodule
